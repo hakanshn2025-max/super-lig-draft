@@ -1,249 +1,301 @@
-```html
 <!DOCTYPE html>
 <html lang="tr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-<title>Süper Lig Draft 26/27</title>
+
+<title>Süper Lig Draft Online</title>
 
 <style>
-*{box-sizing:border-box}
-body{
-margin:0;background:#06111f;color:#fff;
-font-family:Arial,sans-serif
+
+*{
+box-sizing:border-box;
 }
-button,input,select{font:inherit}
-button{cursor:pointer}
-#app{max-width:700px;margin:auto;padding:12px}
+
+body{
+margin:0;
+background:#06111f;
+color:white;
+font-family:Arial,sans-serif;
+}
+
+button,input,select{
+font:inherit;
+}
+
+button{
+cursor:pointer;
+}
+
+#app{
+max-width:700px;
+margin:auto;
+padding:12px;
+}
 
 .logo{
-text-align:center;color:#a8ff00;
-font-size:29px;font-weight:900;
-margin:14px 0 4px
+text-align:center;
+font-size:29px;
+font-weight:900;
+color:#a8ff00;
+margin:15px 0 5px;
 }
+
 .subtitle{
-text-align:center;color:#9fb0c8;
-margin-bottom:18px
+text-align:center;
+color:#9fb0c8;
+margin-bottom:18px;
 }
+
 .card{
 background:#101e33;
 border:1px solid #29415f;
-border-radius:20px;
-padding:17px;
-margin-bottom:14px
+border-radius:18px;
+padding:16px;
+margin-bottom:13px;
 }
+
 .btn{
 width:100%;
-border:0;border-radius:14px;
-padding:15px;margin:6px 0;
-background:#192b45;color:white;
-font-weight:900
+border:0;
+border-radius:13px;
+padding:15px;
+margin:6px 0;
+background:#1b2d47;
+color:white;
+font-weight:900;
 }
+
 .btn.green{
 background:#a8ff00;
-color:#06111f
+color:#06111f;
 }
-.btn.red{background:#ff5365}
+
 input,select{
 width:100%;
 padding:14px;
-border-radius:12px;
+margin:5px 0;
+border-radius:11px;
 border:1px solid #29415f;
 background:#091727;
-color:#fff;
-margin:5px 0
+color:white;
 }
-.notice{
-background:#091727;
-border:1px solid #29415f;
-border-radius:12px;
-padding:11px;
-margin:7px 0;
-color:#c4d0df
-}
+
 .room{
-text-align:center;
-font-size:34px;
+font-size:35px;
 font-weight:900;
 letter-spacing:5px;
+text-align:center;
 color:#a8ff00;
-padding:12px
+padding:12px;
 }
+
 .top{
 display:flex;
 justify-content:space-between;
 align-items:center;
 background:#101e33;
 border:1px solid #29415f;
-border-radius:14px;
+border-radius:13px;
 padding:11px;
-margin-bottom:10px
+margin-bottom:9px;
 }
-.money{color:#ffd166;font-weight:900}
-.timer{color:#a8ff00;font-size:24px;font-weight:900}
 
-.tabs{
-display:flex;
-gap:6px;
-overflow-x:auto;
-margin-bottom:12px
+.money{
+color:#ffd166;
+font-weight:900;
 }
-.tab{
-min-width:75px;
-border:1px solid #29415f;
-background:#101e33;
-color:#9fb0c8;
-padding:10px;
-border-radius:10px;
-font-weight:900
-}
-.tab.active{
-background:#a8ff00;
-color:#06111f
+
+.timer{
+color:#a8ff00;
+font-size:25px;
+font-weight:900;
 }
 
 .players{
 display:grid;
 grid-template-columns:repeat(2,1fr);
-gap:9px
+gap:9px;
 }
+
 .player{
 background:#0c1a2c;
 border:1px solid #29415f;
-border-radius:15px;
-padding:11px
+border-radius:14px;
+padding:11px;
 }
-.player.taken{opacity:.42}
-.position{
+
+.player.taken{
+opacity:.4;
+}
+
+.pos{
 font-size:10px;
 font-weight:900;
-color:#54a8ff
+color:#54a8ff;
 }
+
 .playerName{
 font-weight:900;
-margin:4px 0
+margin:5px 0;
 }
+
 .club{
 font-size:12px;
-color:#9fb0c8
+color:#9fb0c8;
 }
+
 .value{
 color:#ffd166;
 font-weight:900;
 font-size:13px;
-margin-top:6px
+margin-top:7px;
 }
+
 .player button{
 width:100%;
-margin-top:8px;
-padding:9px;
 border:0;
 border-radius:9px;
+padding:9px;
+margin-top:8px;
 background:#a8ff00;
-font-weight:900
+font-weight:900;
+}
+
+.notice{
+background:#091727;
+border:1px solid #29415f;
+border-radius:11px;
+padding:10px;
+margin:6px 0;
+}
+
+.search{
+margin-bottom:10px;
+}
+
+.tabs{
+display:flex;
+gap:5px;
+overflow-x:auto;
+margin-bottom:10px;
+}
+
+.tab{
+border:1px solid #29415f;
+background:#101e33;
+color:#9fb0c8;
+padding:9px 12px;
+border-radius:9px;
+font-weight:900;
+white-space:nowrap;
+}
+
+.tab.active{
+background:#a8ff00;
+color:#06111f;
 }
 
 .pitch{
 background:#13833a;
-border:3px solid #ffffff88;
-border-radius:18px;
-padding:14px;
-margin-bottom:14px
+border:3px solid #ffffff77;
+border-radius:17px;
+padding:13px;
+margin-bottom:13px;
 }
+
 .pitchTitle{
 text-align:center;
 font-weight:900;
-margin-bottom:8px
+margin-bottom:9px;
 }
+
 .lineup{
 display:grid;
 grid-template-columns:repeat(3,1fr);
-gap:7px;
-min-height:330px
+gap:6px;
 }
+
 .slot{
-min-height:65px;
-border:2px dashed #ffffff88;
-border-radius:11px;
+min-height:63px;
+border:2px dashed #ffffff77;
+border-radius:10px;
 display:flex;
 align-items:center;
 justify-content:center;
 text-align:center;
 font-size:10px;
-font-weight:800;
 padding:4px;
-background:#0002
 }
+
 .slot.full{
+background:#0005;
 border-style:solid;
-background:#0005
 }
 
 .toast{
 position:fixed;
+bottom:25px;
 left:50%;
-bottom:24px;
 transform:translateX(-50%);
-background:#fff;
+background:white;
 color:#06111f;
 padding:13px 18px;
 border-radius:12px;
 font-weight:900;
 z-index:9999;
-box-shadow:0 8px 30px #0008
-}
-.hidden{display:none}
-
-.search{
-margin-bottom:10px
+box-shadow:0 5px 30px #0008;
 }
 
-.small{
-font-size:12px;
-color:#9fb0c8
+.hidden{
+display:none;
 }
 
 @media(max-width:450px){
-.players{grid-template-columns:1fr}
+
+.players{
+grid-template-columns:1fr;
 }
+
+}
+
 </style>
 </head>
 
 <body>
 
 <div id="app"></div>
+
 <div id="toast" class="toast hidden"></div>
 
 <script src="https://unpkg.com/peerjs@1.5.4/dist/peerjs.min.js"></script>
 
 <script>
 
-/* =====================================================
-   SÜPER LİG DRAFT
-   2026/27
-   SADECE 4 BÜYÜK KULÜP
-===================================================== */
+/* =========================================================
+   AYARLAR
+========================================================= */
 
-const BUDGET=500000000;
+const BUDGET = 500000000;
 
-/*
-  Transfermarkt piyasa değerleri €
-  Oyuncular 2026/27 aktif kadro mantığıyla hazırlanmıştır.
-*/
+const MAX_PLAYERS = 4;
 
-const RAW_PLAYERS=[
 
-/* ================= GALATASARAY ================= */
+/* =========================================================
+   OYUNCULAR
+========================================================= */
+
+const RAW_PLAYERS = [
+
+/* GALATASARAY */
 
 ["GK","Uğurcan Çakır","Galatasaray",15000000],
-["GK","Jankat Yılmaz","Galatasaray",1500000],
 ["GK","Günay Güvenç","Galatasaray",1200000],
 
 ["DF","Davinson Sánchez","Galatasaray",20000000],
 ["DF","Abdülkerim Bardakcı","Galatasaray",10000000],
 ["DF","Kaan Ayhan","Galatasaray",4000000],
 ["DF","Elias Jelert","Galatasaray",7000000],
-["DF","Carlos Cuesta","Galatasaray",4000000],
 ["DF","Ismail Jakobs","Galatasaray",5000000],
 
 ["MF","Lucas Torreira","Galatasaray",14000000],
@@ -251,45 +303,35 @@ const RAW_PLAYERS=[
 ["MF","Leroy Sané","Galatasaray",35000000],
 ["MF","Barış Alper Yılmaz","Galatasaray",30000000],
 ["MF","Yunus Akgün","Galatasaray",12000000],
-["MF","Berkan Kutlu","Galatasaray",3000000],
-["MF","Eyüp Aydın","Galatasaray",2500000],
 
 ["FW","Victor Osimhen","Galatasaray",75000000],
-["FW","Nicolò Zaniolo","Galatasaray",10000000],
 ["FW","Mauro Icardi","Galatasaray",8000000],
 
-/* ================= FENERBAHÇE ================= */
+/* FENERBAHÇE */
 
 ["GK","Ederson","Fenerbahçe",10000000],
 ["GK","Dominik Livaković","Fenerbahçe",4000000],
-["GK","İrfan Can Eğribayat","Fenerbahçe",7000000],
 
 ["DF","Jayden Oosterwolde","Fenerbahçe",13000000],
 ["DF","Çağlar Söyüncü","Fenerbahçe",10000000],
 ["DF","Alexander Djiku","Fenerbahçe",7000000],
 ["DF","Milan Škriniar","Fenerbahçe",12000000],
-["DF","Bright Osayi-Samuel","Fenerbahçe",4000000],
-["DF","Levent Mercan","Fenerbahçe",2500000],
 
 ["MF","Fred","Fenerbahçe",14000000],
 ["MF","İsmail Yüksek","Fenerbahçe",14000000],
 ["MF","Sebastian Szymański","Fenerbahçe",19000000],
 ["MF","Mattéo Guendouzi","Fenerbahçe",27000000],
 ["MF","Sofyan Amrabat","Fenerbahçe",12000000],
-["MF","İrfan Can Kahveci","Fenerbahçe",5000000],
 
 ["FW","Mason Greenwood","Fenerbahçe",55000000],
 ["FW","Marco Asensio","Fenerbahçe",25000000],
 ["FW","Youssef En-Nesyri","Fenerbahçe",22000000],
-["FW","Dorgeles Nene","Fenerbahçe",12000000],
 
-/* ================= BEŞİKTAŞ ================= */
+/* BEŞİKTAŞ */
 
 ["GK","Alexander Nübel","Beşiktaş",12000000],
 ["GK","Doğan Alemdar","Beşiktaş",7000000],
-["GK","Emre Bilgin","Beşiktaş",400000],
 
-["DF","Amir Murillo","Beşiktaş",5000000],
 ["DF","Felix Uduokhai","Beşiktaş",7000000],
 ["DF","Emirhan Topçu","Beşiktaş",6000000],
 ["DF","Yasin Özcan","Beşiktaş",4000000],
@@ -297,14 +339,12 @@ const RAW_PLAYERS=[
 ["MF","Gedson Fernandes","Beşiktaş",17000000],
 ["MF","Rafa Silva","Beşiktaş",10000000],
 ["MF","Kristjan Asllani","Beşiktaş",10000000],
-["MF","Junior Olaitan","Beşiktaş",3500000],
-["MF","Elan Ricardo","Beşiktaş",3000000],
 
 ["FW","Leandro Trossard","Beşiktaş",18000000],
-["FW","Hyeongyu Oh","Beşiktaş",6000000],
 ["FW","Semih Kılıçsoy","Beşiktaş",15000000],
+["FW","Hyeongyu Oh","Beşiktaş",6000000],
 
-/* ================= TRABZONSPOR ================= */
+/* TRABZONSPOR */
 
 ["GK","André Onana","Trabzonspor",10000000],
 ["GK","Onuralp Çevikkan","Trabzonspor",1000000],
@@ -312,7 +352,6 @@ const RAW_PLAYERS=[
 ["DF","Arseniy Batagov","Trabzonspor",11000000],
 ["DF","Stefan Savić","Trabzonspor",2500000],
 ["DF","Cenk Özkacar","Trabzonspor",5000000],
-["DF","Sidny Lopes Cabral","Trabzonspor",2500000],
 
 ["MF","Ruslan Malinovskyi","Trabzonspor",5000000],
 ["MF","Muhammed Cham","Trabzonspor",7000000],
@@ -320,152 +359,232 @@ const RAW_PLAYERS=[
 
 ["FW","Mohamed Salah","Trabzonspor",30000000],
 ["FW","Paul Onuachu","Trabzonspor",10000000],
-["FW","Denis Drăguș","Trabzonspor",5000000],
 ["FW","Simon Banza","Trabzonspor",12000000]
 
 ];
 
-/* =====================================================
-   OYUNCU VERİSİ
-===================================================== */
 
-let players=RAW_PLAYERS.map((p,i)=>({
+/* =========================================================
+   OYUNCU NESNELERİ
+========================================================= */
+
+function createPlayers(){
+
+return RAW_PLAYERS.map((p,i)=>({
+
 id:i,
 pos:p[0],
 name:p[1],
 club:p[2],
 value:p[3],
 owner:null
+
 }));
 
-/* =====================================================
-   OYUN DURUMU
-===================================================== */
+}
 
-let state={
+
+/* =========================================================
+   UYGULAMA DURUMU
+========================================================= */
+
+let state = {
+
 screen:"home",
+
 name:"",
 team:"",
-room:"",
-host:false,
+
 peer:null,
-conn:null,
-money:BUDGET,
-squad:[],
+
+roomId:"",
+
+isHost:false,
+
+myId:"",
+
+connections:{},
+
+managers:[],
+
+players:createPlayers(),
+
 turn:0,
-timer:30
+
+timer:30,
+
+gameStarted:false,
+
+search:"",
+
+filter:"ALL"
+
 };
 
-let filter="ALL";
-let searchText="";
 
-const app=document.getElementById("app");
-const toastBox=document.getElementById("toast");
+let timerInterval=null;
 
-/* =====================================================
+
+/* =========================================================
+   ELEMENTLER
+========================================================= */
+
+const app = document.getElementById("app");
+
+const toastBox = document.getElementById("toast");
+
+
+/* =========================================================
    YARDIMCI
-===================================================== */
+========================================================= */
 
-function euro(n){
+function money(n){
 
 return new Intl.NumberFormat("tr-TR",{
+
 style:"currency",
+
 currency:"EUR",
+
 maximumFractionDigits:0
+
 }).format(n);
 
 }
 
+
 function toast(text){
 
 toastBox.textContent=text;
+
 toastBox.classList.remove("hidden");
 
 clearTimeout(window.toastTimer);
 
 window.toastTimer=setTimeout(()=>{
+
 toastBox.classList.add("hidden");
+
 },2500);
 
 }
 
-function positionName(p){
 
-if(p==="GK")return"KALECİ";
-if(p==="DF")return"DEFANS";
-if(p==="MF")return"ORTA SAHA";
-return"FORVET";
+function posName(pos){
+
+if(pos==="GK") return "KALECİ";
+
+if(pos==="DF") return "DEFANS";
+
+if(pos==="MF") return "ORTA SAHA";
+
+return "FORVET";
 
 }
 
-/* =====================================================
-   EKRAN
-===================================================== */
+
+/* =========================================================
+   ANA RENDER
+========================================================= */
 
 function render(){
 
-if(state.screen==="home")home();
-if(state.screen==="create")create();
-if(state.screen==="join")join();
-if(state.screen==="lobby")lobby();
-if(state.screen==="game")game();
+if(state.screen==="home") home();
+
+if(state.screen==="create") create();
+
+if(state.screen==="join") join();
+
+if(state.screen==="lobby") lobby();
+
+if(state.screen==="game") game();
 
 }
 
-/* =====================================================
+
+/* =========================================================
    ANA SAYFA
-===================================================== */
+========================================================= */
 
 function home(){
 
 app.innerHTML=`
 
 <div class="logo">
+
 ⚽ SÜPER LİG DRAFT
+
 </div>
 
 <div class="subtitle">
-2026/27 • 2-4 Oyuncu
+
+ONLINE • 2-4 KİŞİ
+
 </div>
+
 
 <div class="card">
 
 <h2>🎮 Oyuna Başla</h2>
 
 <button class="btn green"
+
 onclick="state.screen='create';render()">
+
 🏠 Oda Oluştur
+
 </button>
 
+
 <button class="btn"
+
 onclick="state.screen='join';render()">
+
 🚪 Odaya Katıl
+
 </button>
 
 </div>
+
 
 <div class="card">
 
-<h3>🔥 Bu sürüm</h3>
+<h3>🎯 Nasıl oynanır?</h3>
 
 <div class="notice">
-⭐ Greenwood — Fenerbahçe
+
+1️⃣ Oda oluştur
+
 </div>
 
 <div class="notice">
-⭐ Trossard — Beşiktaş
+
+2️⃣ Arkadaşlarına oda kodunu gönder
+
 </div>
 
 <div class="notice">
-⭐ Salah — Trabzonspor
+
+3️⃣ 2-4 kişi odaya girsin
+
 </div>
 
 <div class="notice">
-⭐ Osimhen — Galatasaray
+
+4️⃣ Sırayla oyuncu seçin
+
 </div>
 
 <div class="notice">
-💰 Başlangıç bütçesi: 500 M€
+
+5️⃣ Birinin aldığı oyuncuyu diğerleri alamaz
+
+</div>
+
+<div class="notice">
+
+💰 Her menajerin bütçesi 500 M€
+
 </div>
 
 </div>
@@ -474,42 +593,66 @@ onclick="state.screen='join';render()">
 
 }
 
-/* =====================================================
+
+/* =========================================================
    ODA OLUŞTUR
-===================================================== */
+========================================================= */
 
 function create(){
 
 app.innerHTML=`
 
 <div class="logo">
+
 ⚽ SÜPER LİG DRAFT
+
 </div>
+
 
 <div class="card">
 
 <h2>🏠 Oda Oluştur</h2>
 
-<input id="name" placeholder="Menajer adın">
+
+<input
+
+id="name"
+
+placeholder="Menajer adın"
+
+>
+
 
 <select id="team">
 
 <option value="">Takımını seç</option>
+
 <option>Galatasaray</option>
+
 <option>Fenerbahçe</option>
+
 <option>Beşiktaş</option>
+
 <option>Trabzonspor</option>
 
 </select>
 
+
 <button class="btn green"
+
 onclick="createRoom()">
-Odayı Oluştur
+
+ODA OLUŞTUR
+
 </button>
 
+
 <button class="btn"
+
 onclick="state.screen='home';render()">
-Geri
+
+GERİ
+
 </button>
 
 </div>
@@ -518,45 +661,75 @@ Geri
 
 }
 
-/* =====================================================
+
+/* =========================================================
    ODAYA KATIL
-===================================================== */
+========================================================= */
 
 function join(){
 
 app.innerHTML=`
 
 <div class="logo">
+
 ⚽ SÜPER LİG DRAFT
+
 </div>
+
 
 <div class="card">
 
 <h2>🚪 Odaya Katıl</h2>
 
-<input id="name" placeholder="Menajer adın">
+
+<input
+
+id="name"
+
+placeholder="Menajer adın"
+
+>
+
 
 <select id="team">
 
 <option value="">Takımını seç</option>
+
 <option>Galatasaray</option>
+
 <option>Fenerbahçe</option>
+
 <option>Beşiktaş</option>
+
 <option>Trabzonspor</option>
 
 </select>
 
-<input id="room"
-placeholder="Oda kodu">
+
+<input
+
+id="room"
+
+placeholder="Oda kodu"
+
+>
+
 
 <button class="btn green"
+
 onclick="joinRoom()">
-Odaya Katıl
+
+ODAYA KATIL
+
 </button>
 
+
 <button class="btn"
+
 onclick="state.screen='home';render()">
-Geri
+
+GERİ
+
 </button>
 
 </div>
@@ -565,31 +738,57 @@ Geri
 
 }
 
-/* =====================================================
-   PEERJS
-===================================================== */
+
+/* =========================================================
+   HOST ODA OLUŞTUR
+========================================================= */
 
 function createRoom(){
 
-let name=document.getElementById("name").value.trim();
-let team=document.getElementById("team").value;
+const name=document.getElementById("name").value.trim();
 
-if(!name||!team){
+const team=document.getElementById("team").value;
 
-toast("İsim ve takım seçmelisin.");
+
+if(!name || !team){
+
+toast("İsim ve takım seç.");
+
 return;
 
 }
 
+
 state.name=name;
+
 state.team=team;
-state.host=true;
+
+state.isHost=true;
+
 
 state.peer=new Peer();
 
+
 state.peer.on("open",id=>{
 
-state.room=id.substring(0,6).toUpperCase();
+state.myId=id;
+
+state.roomId=id.substring(0,6).toUpperCase();
+
+
+state.managers=[{
+
+id:id,
+
+name:name,
+
+team:team,
+
+money:BUDGET
+
+}];
+
+
 state.screen="lobby";
 
 render();
@@ -598,186 +797,359 @@ toast("Oda oluşturuldu!");
 
 });
 
-state.peer.on("connection",c=>{
 
-state.conn=c;
-setupConnection(c);
+state.peer.on("connection",connection=>{
+
+acceptConnection(connection);
 
 });
 
-state.peer.on("error",()=>{
+
+state.peer.on("error",error=>{
+
+console.log(error);
+
 toast("Bağlantı hatası.");
+
 });
 
 }
 
+
+/* =========================================================
+   OYUNCU ODAYA KATIL
+========================================================= */
+
 function joinRoom(){
 
-let name=document.getElementById("name").value.trim();
-let team=document.getElementById("team").value;
-let room=document.getElementById("room").value.trim();
+const name=document.getElementById("name").value.trim();
 
-if(!name||!team||!room){
+const team=document.getElementById("team").value;
 
-toast("Tüm alanları doldur.");
+const room=document.getElementById("room").value.trim();
+
+
+if(!name || !team || !room){
+
+toast("Bilgileri doldur.");
+
 return;
 
 }
 
+
 state.name=name;
+
 state.team=team;
+
+state.isHost=false;
+
 
 state.peer=new Peer();
 
-state.peer.on("open",()=>{
 
-state.conn=state.peer.connect(room.toLowerCase());
+state.peer.on("open",id=>{
 
-setupConnection(state.conn);
+state.myId=id;
 
-state.room=room.toUpperCase();
+
+const connection=
+
+state.peer.connect(room.toLowerCase());
+
+
+state.connections.host=connection;
+
+
+connection.on("open",()=>{
+
+connection.send({
+
+type:"JOIN",
+
+id:id,
+
+name:name,
+
+team:team
+
+});
+
+
+state.roomId=room.toUpperCase();
+
 state.screen="lobby";
 
 render();
 
 });
 
+
+connection.on("data",receiveData);
+
+
+connection.on("close",()=>{
+
+toast("Host bağlantısı kesildi.");
+
+});
+
+});
+
+
 state.peer.on("error",()=>{
+
 toast("Oda bulunamadı.");
+
+});
+
+}
+
+
+/* =========================================================
+   HOST BAĞLANTI KABUL
+========================================================= */
+
+function acceptConnection(connection){
+
+connection.on("data",data=>{
+
+if(data.type==="JOIN"){
+
+if(state.managers.length>=MAX_PLAYERS){
+
+connection.send({
+
+type:"FULL"
+
+});
+
+return;
+
+}
+
+
+const exists=state.managers.find(x=>x.id===data.id);
+
+
+if(!exists){
+
+state.managers.push({
+
+id:data.id,
+
+name:data.name,
+
+team:data.team,
+
+money:BUDGET
+
 });
 
 }
 
-function setupConnection(c){
 
-c.on("open",()=>{
+state.connections[data.id]=connection;
 
-c.send({
-type:"hello",
-name:state.name,
-team:state.team
+
+connection.send({
+
+type:"WELCOME",
+
+id:state.myId,
+
+players:state.players,
+
+managers:state.managers,
+
+turn:state.turn,
+
+gameStarted:state.gameStarted
+
 });
 
-toast("Bağlantı başarılı!");
+
+broadcastLobby();
+
+
+toast(data.name+" odaya katıldı.");
+
+}
+
+else{
+
+handleHostData(data);
+
+}
 
 });
 
-c.on("data",receiveData);
 
-c.on("close",()=>{
-toast("Bağlantı kesildi.");
+connection.on("close",()=>{
+
+toast("Bir oyuncu odadan ayrıldı.");
+
 });
 
 }
 
-function send(data){
 
-if(state.conn&&state.conn.open){
-state.conn.send(data);
-}
+/* =========================================================
+   HOST VERİLERİ
+========================================================= */
 
-}
+function handleHostData(data){
 
-/* =====================================================
-   LOBİ
-===================================================== */
+if(data.type==="PICK"){
 
-function lobby(){
+hostPick(
 
-app.innerHTML=`
+data.playerId,
 
-<div class="logo">
-⚽ SÜPER LİG DRAFT
-</div>
+data.managerId
 
-<div class="card">
-
-<h2>🏠 Oda</h2>
-
-<div class="room">
-${state.room}
-</div>
-
-<div style="text-align:center" class="small">
-Bu kodu arkadaşlarına gönder.
-</div>
-
-</div>
-
-<div class="card">
-
-<h3>👤 Sen</h3>
-
-<div class="notice">
-<b>${state.name}</b>
-<br>
-<span class="small">${state.team}</span>
-</div>
-
-${state.host?`
-
-<button class="btn green"
-onclick="startGame()">
-🚀 Oyunu Başlat
-</button>
-
-`:`<div class="notice">
-⏳ Oda sahibinin oyunu başlatması bekleniyor.
-</div>`}
-
-<button class="btn"
-onclick="navigator.clipboard.writeText('${state.room}');toast('Kod kopyalandı!')">
-📋 Oda Kodunu Kopyala
-</button>
-
-</div>
-
-`;
+);
 
 }
 
-/* =====================================================
-   OYUN BAŞLAT
-===================================================== */
+}
+
+
+/* =========================================================
+   HOST TÜM OYUNCULARA GÖNDER
+========================================================= */
+
+function broadcast(data){
+
+Object.values(state.connections).forEach(connection=>{
+
+if(connection && connection.open){
+
+connection.send(data);
+
+}
+
+});
+
+}
+
+
+/* =========================================================
+   LOBİ BİLDİR
+========================================================= */
+
+function broadcastLobby(){
+
+broadcast({
+
+type:"LOBBY",
+
+managers:state.managers,
+
+gameStarted:state.gameStarted
+
+});
+
+render();
+
+}
+
+
+/* =========================================================
+   OYUNU BAŞLAT
+========================================================= */
 
 function startGame(){
 
-state.screen="game";
-state.turn=0;
-state.timer=30;
+if(!state.isHost) return;
 
-render();
-startTimer();
 
-send({
-type:"start",
-players:players
-});
+if(state.managers.length<2){
+
+toast("En az 2 kişi gerekli.");
+
+return;
 
 }
 
-let timerInterval=null;
+
+state.gameStarted=true;
+
+state.turn=0;
+
+state.timer=30;
+
+
+broadcast({
+
+type:"GAME_START",
+
+players:state.players,
+
+managers:state.managers,
+
+turn:state.turn
+
+});
+
+
+render();
+
+startTimer();
+
+}
+
+
+/* =========================================================
+   SIRA
+========================================================= */
+
+function currentManager(){
+
+return state.managers[state.turn];
+
+}
+
+
+/* =========================================================
+   ZAMANLAYICI
+========================================================= */
 
 function startTimer(){
 
 clearInterval(timerInterval);
 
+
 timerInterval=setInterval(()=>{
 
-if(state.screen!=="game"){
+if(!state.gameStarted){
+
 clearInterval(timerInterval);
+
 return;
+
 }
+
 
 state.timer--;
 
-let el=document.getElementById("timer");
 
-if(el)el.textContent=state.timer;
+const timer=document.getElementById("timer");
+
+if(timer){
+
+timer.textContent=state.timer;
+
+}
+
 
 if(state.timer<=0){
 
+if(state.isHost){
+
 nextTurn();
+
+}
 
 }
 
@@ -785,158 +1157,465 @@ nextTurn();
 
 }
 
+
+/* =========================================================
+   SIRAYI DEĞİŞTİR
+========================================================= */
+
 function nextTurn(){
 
 state.turn++;
 
-if(state.turn>=4){
+
+if(state.turn>=state.managers.length){
+
 state.turn=0;
+
 }
+
 
 state.timer=30;
 
-send({
-type:"state",
-players:players,
+
+broadcast({
+
+type:"STATE",
+
+players:state.players,
+
+managers:state.managers,
+
 turn:state.turn
+
 });
+
 
 render();
 
 }
 
-/* =====================================================
-   OYUN EKRANI
-===================================================== */
 
-function game(){
+/* =========================================================
+   OYUNCU AL
+========================================================= */
 
-let myTurn=state.turn===0;
+function buyPlayer(id){
+
+const player=state.players.find(x=>x.id===id);
+
+
+if(!player) return;
+
+
+if(state.gameStarted===false){
+
+toast("Oyun henüz başlamadı.");
+
+return;
+
+}
+
+
+const manager=currentManager();
+
+
+if(!manager){
+
+return;
+
+}
+
+
+if(manager.id!==state.myId){
+
+toast("⏳ Sıra sende değil.");
+
+return;
+
+}
+
+
+if(player.owner){
+
+toast("🔒 Bu oyuncu zaten alındı.");
+
+return;
+
+}
+
+
+if(manager.money < player.value){
+
+toast("💰 Bütçen yetmiyor.");
+
+return;
+
+}
+
+
+/*
+   HOST
+*/
+
+if(state.isHost){
+
+hostPick(id,state.myId);
+
+return;
+
+}
+
+
+/*
+   CLIENT
+*/
+
+state.connections.host.send({
+
+type:"PICK",
+
+playerId:id,
+
+managerId:state.myId
+
+});
+
+}
+
+
+/* =========================================================
+   HOST OYUNCU SEÇİMİ
+========================================================= */
+
+function hostPick(playerId,managerId){
+
+if(!state.isHost) return;
+
+
+const manager=state.managers.find(x=>x.id===managerId);
+
+const player=state.players.find(x=>x.id===playerId);
+
+
+if(!manager || !player){
+
+return;
+
+}
+
+
+if(currentManager().id!==managerId){
+
+return;
+
+}
+
+
+if(player.owner){
+
+return;
+
+}
+
+
+if(manager.money < player.value){
+
+return;
+
+}
+
+
+player.owner=managerId;
+
+manager.money-=player.value;
+
+
+/*
+   Herkese güncel durumu gönder
+*/
+
+broadcast({
+
+type:"PICKED",
+
+player:player,
+
+players:state.players,
+
+managers:state.managers,
+
+turn:state.turn
+
+});
+
+
+toast("⚽ "+player.name+" "+manager.name+" tarafından alındı!");
+
+
+setTimeout(()=>{
+
+nextTurn();
+
+},700);
+
+}
+
+
+/* =========================================================
+   GELEN VERİ
+========================================================= */
+
+function receiveData(data){
+
+/*
+   WELCOME
+*/
+
+if(data.type==="WELCOME"){
+
+state.players=data.players;
+
+state.managers=data.managers;
+
+state.turn=data.turn;
+
+state.gameStarted=data.gameStarted;
+
+
+render();
+
+return;
+
+}
+
+
+/*
+   LOBİ
+*/
+
+if(data.type==="LOBBY"){
+
+state.managers=data.managers;
+
+state.gameStarted=data.gameStarted;
+
+render();
+
+return;
+
+}
+
+
+/*
+   OYUN BAŞLANGICI
+*/
+
+if(data.type==="GAME_START"){
+
+state.players=data.players;
+
+state.managers=data.managers;
+
+state.turn=data.turn;
+
+state.gameStarted=true;
+
+state.timer=30;
+
+
+state.screen="game";
+
+render();
+
+startTimer();
+
+toast("🚀 Oyun başladı!");
+
+return;
+
+}
+
+
+/*
+   OYUNCU ALINDI
+*/
+
+if(data.type==="PICKED"){
+
+state.players=data.players;
+
+state.managers=data.managers;
+
+state.turn=data.turn;
+
+
+const player=data.player;
+
+
+const manager=
+
+state.managers.find(x=>x.id===player.owner);
+
+
+if(manager){
+
+toast(
+
+"🔒 "+player.name+
+
+" → "+manager.name
+
+);
+
+}
+
+
+render();
+
+return;
+
+}
+
+
+/*
+   NORMAL STATE
+*/
+
+if(data.type==="STATE"){
+
+state.players=data.players;
+
+state.managers=data.managers;
+
+state.turn=data.turn;
+
+state.timer=30;
+
+
+render();
+
+return;
+
+}
+
+
+/*
+   ODA DOLU
+*/
+
+if(data.type==="FULL"){
+
+toast("❌ Oda dolu. Maksimum 4 kişi.");
+
+}
+
+}
+
+
+/* =========================================================
+   LOBİ
+========================================================= */
+
+function lobby(){
+
+const count=state.managers.length;
+
 
 app.innerHTML=`
 
 <div class="logo">
+
 ⚽ SÜPER LİG DRAFT
-</div>
-
-<div class="top">
-
-<div>
-<b>${state.name}</b>
-<br>
-<span class="small">${state.team}</span>
-</div>
-
-<div class="money">
-${euro(state.money)}
-</div>
 
 </div>
 
-<div class="top">
-
-<div>
-<span class="small">DRAFT SIRASI</span>
-<br>
-<b>${myTurn?"🔥 SENİN SIRAN":"⏳ RAKİP SEÇİYOR"}</b>
-</div>
-
-<div id="timer" class="timer">
-${state.timer}
-</div>
-
-</div>
-
-<div class="pitch">
-
-<div class="pitchTitle">
-🏟️ KADRO (${state.squad.length}/11)
-</div>
-
-<div class="lineup">
-${lineup()}
-</div>
-
-</div>
 
 <div class="card">
 
-<h2>🎯 Oyuncu Havuzu</h2>
+<h2>🔑 ODA KODU</h2>
 
-<input
-class="search"
-placeholder="🔎 Oyuncu ara..."
-value="${searchText}"
-oninput="searchPlayers(this.value)"
->
 
-<div class="tabs">
+<div class="room">
 
-<button class="tab ${filter==="ALL"?"active":""}"
-onclick="setFilter('ALL')">
-Tümü
-</button>
+${state.roomId}
 
-<button class="tab ${filter==="GK"?"active":""}"
-onclick="setFilter('GK')">
-Kaleci
-</button>
+</div>
 
-<button class="tab ${filter==="DF"?"active":""}"
-onclick="setFilter('DF')">
-Defans
-</button>
 
-<button class="tab ${filter==="MF"?"active":""}"
-onclick="setFilter('MF')">
-Orta Saha
-</button>
+<div style="text-align:center;color:#9fb0c8">
 
-<button class="tab ${filter==="FW"?"active":""}"
-onclick="setFilter('FW')">
-Forvet
+Arkadaşlarına bu kodu gönder.
+
+</div>
+
+
+<button class="btn"
+
+onclick="copyRoom()">
+
+📋 KODU KOPYALA
+
 </button>
 
 </div>
 
-<div class="players">
-${playerList()}
-</div>
-
-</div>
 
 <div class="card">
 
-<h3>📋 Kadrom</h3>
+<h3>👥 Oyuncular (${count}/4)</h3>
 
-${
-state.squad.length===0
-?
-`<div class="notice">
-Henüz oyuncu seçmedin.
-</div>`
-:
-state.squad.map(p=>`
+
+${state.managers.map((m,i)=>`
 
 <div class="notice">
-<b>${p.name}</b>
+
+<b>${i===0?"👑 ":""}${m.name}</b>
+
 <br>
-<span class="small">
-${p.club} • ${euro(p.value)}
+
+<span style="color:#9fb0c8">
+
+${m.team}
+
 </span>
-</div>
-
-`).join("")
-}
 
 </div>
 
-<div class="card">
+`).join("")}
+
+
+${count<2?`
+
+<div class="notice">
+
+⏳ En az 2 oyuncu bekleniyor...
+
+</div>
+
+`:`
+
+<div class="notice">
+
+✅ Oyun başlatılabilir!
+
+</div>
+
+`}
+
+
+${state.isHost ? `
 
 <button class="btn green"
-onclick="simulateMatch()">
-⚽ MAÇI OYNAT
+
+onclick="startGame()"
+
+${count<2?"disabled":""}>
+
+🚀 OYUNU BAŞLAT
+
 </button>
+
+`:""}
 
 </div>
 
@@ -944,255 +1623,414 @@ onclick="simulateMatch()">
 
 }
 
-/* =====================================================
-   SAHA
-===================================================== */
 
-function lineup(){
+/* =========================================================
+   KOD KOPYALA
+========================================================= */
 
-let slots=Array(11).fill(null);
+function copyRoom(){
 
-state.squad.forEach((p,i)=>{
-if(i<11)slots[i]=p;
+navigator.clipboard.writeText(state.roomId)
+
+.then(()=>{
+
+toast("✅ Oda kodu kopyalandı.");
+
+})
+
+.catch(()=>{
+
+toast("Kod: "+state.roomId);
+
 });
 
-return slots.map((p,i)=>`
-
-<div class="slot ${p?"full":""}">
-${
-p
-?
-`${p.name}<br><span class="small">${p.pos}</span>`
-:
-`+ ${i+1}`
 }
+
+
+/* =========================================================
+   OYUN EKRANI
+========================================================= */
+
+function game(){
+
+const me=
+
+state.managers.find(x=>x.id===state.myId);
+
+
+const current=currentManager();
+
+
+app.innerHTML=`
+
+<div class="logo">
+
+⚽ SÜPER LİG DRAFT
+
 </div>
 
-`).join("");
+
+<div class="top">
+
+<div>
+
+<b>${state.name}</b>
+
+<br>
+
+<span style="color:#9fb0c8">
+
+${state.team}
+
+</span>
+
+</div>
+
+
+<div class="money">
+
+${money(me ? me.money : BUDGET)}
+
+</div>
+
+</div>
+
+
+<div class="top">
+
+<div>
+
+<span style="font-size:11px;color:#9fb0c8">
+
+SIRA
+
+</span>
+
+<br>
+
+<b>
+
+${current ? current.name : ""}
+
+</b>
+
+</div>
+
+
+<div class="timer" id="timer">
+
+${state.timer}
+
+</div>
+
+</div>
+
+
+<div class="card">
+
+<h3>👥 Menajerler</h3>
+
+${state.managers.map((m,i)=>`
+
+<div class="notice"
+
+style="${i===state.turn?'border-color:#a8ff00':''}">
+
+${i===state.turn?"🔥 ":""}
+
+<b>${m.name}</b>
+
+<br>
+
+<span style="color:#9fb0c8">
+
+${m.team}
+
+</span>
+
+<br>
+
+<span style="color:#ffd166">
+
+${money(m.money)}
+
+</span>
+
+</div>
+
+`).join("")}
+
+</div>
+
+
+${mySquad()}
+
+
+<div class="card">
+
+<h2>⚽ Oyuncu Havuzu</h2>
+
+
+<input
+
+placeholder="🔎 Oyuncu ara..."
+
+value="${state.search}"
+
+oninput="searchPlayers(this.value)"
+
+>
+
+
+<div class="tabs">
+
+<button class="tab ${state.filter==="ALL"?"active":""}"
+
+onclick="setFilter('ALL')">
+
+Tümü
+
+</button>
+
+<button class="tab ${state.filter==="GK"?"active":""}"
+
+onclick="setFilter('GK')">
+
+Kaleci
+
+</button>
+
+<button class="tab ${state.filter==="DF"?"active":""}"
+
+onclick="setFilter('DF')">
+
+Defans
+
+</button>
+
+<button class="tab ${state.filter==="MF"?"active":""}"
+
+onclick="setFilter('MF')">
+
+Orta Saha
+
+</button>
+
+<button class="tab ${state.filter==="FW"?"active":""}"
+
+onclick="setFilter('FW')">
+
+Forvet
+
+</button>
+
+</div>
+
+
+<div class="players">
+
+${playerList()}
+
+</div>
+
+</div>
+
+`;
 
 }
 
-/* =====================================================
+
+/* =========================================================
+   BENİM KADROM
+========================================================= */
+
+function mySquad(){
+
+const squad=
+
+state.players.filter(x=>x.owner===state.myId);
+
+
+return `
+
+<div class="pitch">
+
+<div class="pitchTitle">
+
+🏟️ KADROM ${squad.length}/11
+
+</div>
+
+
+<div class="lineup">
+
+${Array.from({length:11},(_,i)=>{
+
+const p=squad[i];
+
+return `
+
+<div class="slot ${p?"full":""}">
+
+${p ? p.name : "+ "+(i+1)}
+
+</div>
+
+`;
+
+}).join("")}
+
+</div>
+
+</div>
+
+`;
+
+}
+
+
+/* =========================================================
    OYUNCU LİSTESİ
-===================================================== */
+========================================================= */
 
 function playerList(){
 
-return players
+return state.players
 
-.filter(p=>filter==="ALL"||p.pos===filter)
+.filter(p=>{
 
-.filter(p=>
-p.name.toLowerCase().includes(searchText.toLowerCase()) ||
-p.club.toLowerCase().includes(searchText.toLowerCase())
-)
+if(state.filter!=="ALL" && p.pos!==state.filter){
 
-.map(p=>`
+return false;
+
+}
+
+
+if(state.search){
+
+const s=state.search.toLowerCase();
+
+return (
+
+p.name.toLowerCase().includes(s) ||
+
+p.club.toLowerCase().includes(s)
+
+);
+
+}
+
+
+return true;
+
+})
+
+
+.map(p=>{
+
+const owner=
+
+state.managers.find(m=>m.id===p.owner);
+
+
+return `
 
 <div class="player ${p.owner?"taken":""}">
 
-<div class="position">
-${positionName(p.pos)}
+<div class="pos">
+
+${posName(p.pos)}
+
 </div>
+
 
 <div class="playerName">
+
 ${p.name}
+
 </div>
+
 
 <div class="club">
+
 ${p.club}
+
 </div>
+
 
 <div class="value">
-${euro(p.value)}
+
+${money(p.value)}
+
 </div>
 
-${
-p.owner
-?
-`<div class="notice">
-🔒 ALINDI
-</div>`
-:
-`
-<button onclick="buyPlayer(${p.id})">
+
+${p.owner ? `
+
+<div class="notice">
+
+🔒 ${owner ? owner.name : "ALINDI"}
+
+</div>
+
+` : `
+
+<button
+
+onclick="buyPlayer(${p.id})">
+
 💰 KADROYA AL
+
 </button>
-`
-}
+
+`}
 
 </div>
 
-`).join("");
+`;
+
+}).join("");
 
 }
 
-/* =====================================================
+
+/* =========================================================
    ARAMA
-===================================================== */
+========================================================= */
 
 function searchPlayers(value){
 
-searchText=value;
+state.search=value;
 
-let box=document.querySelector(".players");
+
+const box=document.querySelector(".players");
+
 
 if(box){
+
 box.innerHTML=playerList();
-}
 
 }
 
-/* =====================================================
-   FİLTRE
-===================================================== */
+}
+
+
+/* =========================================================
+   POZİSYON FİLTRESİ
+========================================================= */
 
 function setFilter(value){
 
-filter=value;
-render();
-
-}
-
-/* =====================================================
-   OYUNCU AL
-===================================================== */
-
-function buyPlayer(id){
-
-if(state.turn!==0){
-
-toast("⏳ Şu anda senin sıran değil.");
-return;
-
-}
-
-if(state.squad.length>=11){
-
-toast("11 kişilik kadron tamamlandı.");
-return;
-
-}
-
-let p=players.find(x=>x.id===id);
-
-if(!p)return;
-
-if(p.owner){
-
-toast("🔒 Bu oyuncuyu başka menajer aldı.");
-return;
-
-}
-
-if(state.money<p.value){
-
-toast("💰 Bütçen yetmiyor.");
-return;
-
-}
-
-state.money-=p.value;
-
-p.owner=state.name;
-
-state.squad.push(p);
-
-toast("✅ "+p.name+" kadroya katıldı!");
-
-send({
-type:"state",
-players:players,
-turn:state.turn
-});
+state.filter=value;
 
 render();
 
 }
 
-/* =====================================================
-   MAÇ SİMÜLASYONU
-===================================================== */
 
-function simulateMatch(){
-
-if(state.squad.length<11){
-
-toast("⚠️ Önce 11 kişilik kadro kur.");
-return;
-
-}
-
-let goals=[
-"⚽ GOOOOL! "+state.squad[Math.floor(Math.random()*state.squad.length)].name+" ağları buldu!",
-"⚽ Harika bir bitiriş! GOOOOL!",
-"❌ Direkten döndü!",
-"❌ Kaleci müthiş kurtardı!",
-"⚽ Ceza sahasında şut... GOOOOL!",
-"❌ Şut az farkla dışarı çıktı!"
-];
-
-let i=0;
-
-let match=setInterval(()=>{
-
-toast(goals[Math.floor(Math.random()*goals.length)]);
-
-i++;
-
-if(i>=6){
-
-clearInterval(match);
-
-setTimeout(()=>{
-toast("🏁 Maç sona erdi!");
-},1200);
-
-}
-
-},1800);
-
-}
-
-/* =====================================================
-   MULTIPLAYER VERİ
-===================================================== */
-
-function receiveData(data){
-
-if(data.type==="hello"){
-
-toast("👤 "+data.name+" odaya katıldı!");
-
-}
-
-if(data.type==="start"){
-
-players=data.players;
-
-state.screen="game";
-state.turn=0;
-state.timer=30;
-
-render();
-startTimer();
-
-}
-
-if(data.type==="state"){
-
-players=data.players;
-state.turn=data.turn;
-
-render();
-
-}
-
-}
-
-/* =====================================================
+/* =========================================================
    BAŞLAT
-===================================================== */
+========================================================= */
 
 render();
 
@@ -1200,4 +2038,3 @@ render();
 
 </body>
 </html>
-```
