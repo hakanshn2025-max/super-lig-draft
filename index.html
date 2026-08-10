@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Süper Lig Draft</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #07111f;
+    color: white;
+}
+
+.container {
+    max-width: 600px;
+    margin: auto;
+    padding: 25px 18px;
+}
+
+.logo {
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    color: #b7ff19;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    text-align: center;
+    color: #9aa6b8;
+    margin-bottom: 30px;
+}
+
+.card {
+    background: #121e30;
+    border: 1px solid #26364d;
+    border-radius: 18px;
+    padding: 20px;
+    margin-bottom: 15px;
+}
+
+h2 {
+    margin-top: 0;
+}
+
+button {
+    width: 100%;
+    padding: 16px;
+    margin-top: 12px;
+    border: 0;
+    border-radius: 12px;
+    background: #b7ff19;
+    color: #07111f;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+button.secondary {
+    background: #223149;
+    color: white;
+}
+
+input {
+    width: 100%;
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid #40516b;
+    background: #0b1626;
+    color: white;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+.hidden {
+    display: none;
+}
+
+.budget {
+    color: #b7ff19;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.room {
+    text-align: center;
+    font-size: 25px;
+    color: #b7ff19;
+    letter-spacing: 5px;
+    margin: 15px;
+}
+
+.player {
+    background: #1a2940;
+    padding: 14px;
+    border-radius: 12px;
+    margin-top: 10px;
+}
+
+.player button {
+    margin-top: 8px;
+}
+
+.message {
+    text-align: center;
+    color: #9aa6b8;
+    margin-top: 15px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="logo">⚽ SÜPER LİG DRAFT</div>
+
+    <div class="subtitle">
+        2-4 kişilik futbol menajerlik oyunu
+    </div>
+
+    <!-- ANA MENÜ -->
+
+    <div id="menu" class="card">
+
+        <h2>🎮 Oyuna Başla</h2>
+
+        <button onclick="showCreate()">
+            🏠 Oda Oluştur
+        </button>
+
+        <button class="secondary" onclick="showJoin()">
+            🚪 Odaya Katıl
+        </button>
+
+    </div>
+
+
+    <!-- ODA OLUŞTUR -->
+
+    <div id="create" class="card hidden">
+
+        <h2>🏠 Oda Oluştur</h2>
+
+        <input id="createName"
+               placeholder="Menajer adın">
+
+        <button onclick="createRoom()">
+            Odayı Oluştur
+        </button>
+
+        <button class="secondary" onclick="backMenu()">
+            Geri
+        </button>
+
+    </div>
+
+
+    <!-- ODAYA KATIL -->
+
+    <div id="join" class="card hidden">
+
+        <h2>🚪 Odaya Katıl</h2>
+
+        <input id="joinName"
+               placeholder="Menajer adın">
+
+        <input id="roomInput"
+               placeholder="6 haneli oda kodu">
+
+        <button onclick="joinRoom()">
+            Odaya Katıl
+        </button>
+
+        <button class="secondary" onclick="backMenu()">
+            Geri
+        </button>
+
+    </div>
+
+
+    <!-- ODA -->
+
+    <div id="room" class="card hidden">
+
+        <h2>👥 Oyun Odası</h2>
+
+        <div>
+            Oda Kodu
+        </div>
+
+        <div id="roomCode"
+             class="room">
+        </div>
+
+        <h3>Oyuncular</h3>
+
+        <div id="players">
+        </div>
+
+        <button onclick="readyPlayer()">
+            ✅ Hazırım
+        </button>
+
+        <button class="secondary" onclick="backMenu()">
+            Çık
+        </button>
+
+        <div id="roomMessage"
+             class="message">
+        </div>
+
+    </div>
+
+
+    <!-- OYUN -->
+
+    <div id="game" class="card hidden">
+
+        <h2>🏆 Draft Başladı!</h2>
+
+        <div class="budget">
+            💰 €500.000.000
+        </div>
+
+        <p>
+            Sırayla futbolcu seçeceğiz.
+        </p>
+
+        <button onclick="startDraft()">
+            🎯 Draft'a Başla
+        </button>
+
+    </div>
+
+</div>
+
+
+<script>
+
+let currentRoom = "";
+let currentPlayer = "";
+let players = [];
+
+
+function hideAll() {
+
+    document.getElementById("menu").classList.add("hidden");
+    document.getElementById("create").classList.add("hidden");
+    document.getElementById("join").classList.add("hidden");
+    document.getElementById("room").classList.add("hidden");
+    document.getElementById("game").classList.add("hidden");
+
+}
+
+
+function showCreate() {
+
+    hideAll();
+
+    document.getElementById("create")
+        .classList.remove("hidden");
+
+}
+
+
+function showJoin() {
+
+    hideAll();
+
+    document.getElementById("join")
+        .classList.remove("hidden");
+
+}
+
+
+function backMenu() {
+
+    hideAll();
+
+    document.getElementById("menu")
+        .classList.remove("hidden");
+
+}
+
+
+function createRoom() {
+
+    let name =
+        document.getElementById("createName").value.trim();
+
+    if (!name) {
+
+        alert("Lütfen menajer adını yaz.");
+
+        return;
+    }
+
+
+    currentPlayer = name;
+
+
+    currentRoom =
+        Math.random()
+        .toString(36)
+        .substring(2,8)
+        .toUpperCase();
+
+
+    players = [
+        {
+            name: name,
+            manager: 1,
+            ready: false
+        }
+    ];
+
+
+    openRoom();
+
+}
+
+
+function joinRoom() {
+
+    let name =
+        document.getElementById("joinName").value.trim();
+
+    let code =
+        document.getElementById("roomInput").value
+        .trim()
+        .toUpperCase();
+
+
+    if (!name || !code) {
+
+        alert("İsim ve oda kodunu gir.");
+
+        return;
+    }
+
+
+    currentPlayer = name;
+
+    currentRoom = code;
+
+
+    players.push({
+
+        name: name,
+        manager: players.length + 1,
+        ready: false
+
+    });
+
+
+    if (players.length > 4) {
+
+        players.pop();
+
+        alert("Bu oda dolu.");
+
+        return;
+    }
+
+
+    openRoom();
+
+}
+
+
+function openRoom() {
+
+    hideAll();
+
+    document.getElementById("room")
+        .classList.remove("hidden");
+
+
+    document.getElementById("roomCode")
+        .innerText = currentRoom;
+
+
+    renderPlayers();
+
+}
+
+
+function renderPlayers() {
+
+    let html = "";
+
+
+    players.forEach(function(player) {
+
+        html += `
+            <div class="player">
+
+                👤 ${player.name}
+
+                <br>
+
+                Menajer ${player.manager}
+
+                <br>
+
+                ${player.ready
+                    ? "🟢 Hazır"
+                    : "🟡 Hazır değil"}
+
+            </div>
+        `;
+
+    });
+
+
+    document.getElementById("players")
+        .innerHTML = html;
+
+}
+
+
+function readyPlayer() {
+
+    let player =
+        players.find(function(p) {
+
+            return p.name === currentPlayer;
+
+        });
+
+
+    if (player) {
+
+        player.ready = true;
+
+    }
+
+
+    renderPlayers();
+
+
+    if (players.length >= 2 &&
+        players.every(p => p.ready)) {
+
+        document.getElementById("roomMessage")
+            .innerText =
+            "🚀 Herkes hazır! Oyun başlayabilir.";
+
+    } else {
+
+        document.getElementById("roomMessage")
+            .innerText =
+            "⏳ Diğer oyuncular bekleniyor...";
+
+    }
+
+}
+
+
+function startDraft() {
+
+    alert(
+        "🎯 Draft sistemi bir sonraki aşamada başlayacak!"
+    );
+
+}
+
+</script>
+
+</body>
+</html>
