@@ -1,252 +1,82 @@
-```html
 <!DOCTYPE html>
 <html lang="tr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-
 <title>Süper Lig Draft Online</title>
 
 <style>
 *{box-sizing:border-box}
-
 body{
-margin:0;
-background:#06111f;
-color:white;
+margin:0;background:#06111f;color:#fff;
 font-family:Arial,sans-serif
 }
-
 button,input,select{font:inherit}
 button{cursor:pointer}
-button:disabled{opacity:.4;cursor:not-allowed}
-
-#app{
-max-width:700px;
-margin:auto;
-padding:12px
-}
-
+#app{max-width:700px;margin:auto;padding:14px}
 .logo{
-text-align:center;
-font-size:29px;
-font-weight:900;
-color:#a8ff00;
-margin:15px 0 5px
+text-align:center;font-size:29px;font-weight:900;
+color:#a8ff00;margin:15px 0 5px
 }
-
-.subtitle{
-text-align:center;
-color:#9fb0c8;
-margin-bottom:18px
-}
-
+.subtitle{text-align:center;color:#9fb0c8;margin-bottom:18px}
 .card{
-background:#101e33;
-border:1px solid #29415f;
-border-radius:18px;
-padding:16px;
-margin-bottom:13px
+background:#101e33;border:1px solid #29415f;
+border-radius:18px;padding:16px;margin-bottom:13px
 }
-
 .btn{
-width:100%;
-border:0;
-border-radius:13px;
-padding:15px;
-margin:6px 0;
-background:#1b2d47;
-color:white;
-font-weight:900
+width:100%;border:0;border-radius:13px;padding:15px;
+margin:6px 0;background:#1b2d47;color:#fff;font-weight:900
 }
-
-.btn.green{
-background:#a8ff00;
-color:#06111f
-}
-
+.btn.green{background:#a8ff00;color:#06111f}
 input,select{
-width:100%;
-padding:14px;
-margin:5px 0;
-border-radius:11px;
-border:1px solid #29415f;
-background:#091727;
-color:white
+width:100%;padding:14px;margin:5px 0;border-radius:11px;
+border:1px solid #29415f;background:#091727;color:#fff
 }
-
 .room{
-font-size:20px;
-font-weight:900;
-letter-spacing:2px;
-text-align:center;
-color:#a8ff00;
-padding:14px;
-word-break:break-all
+font-size:34px;font-weight:900;letter-spacing:5px;
+text-align:center;color:#a8ff00;padding:12px
 }
-
-.top{
-display:flex;
-justify-content:space-between;
-align-items:center;
-background:#101e33;
-border:1px solid #29415f;
-border-radius:13px;
-padding:11px;
-margin-bottom:9px
-}
-
-.money{
-color:#ffd166;
-font-weight:900
-}
-
-.timer{
-color:#a8ff00;
-font-size:25px;
-font-weight:900
-}
-
-.players{
-display:grid;
-grid-template-columns:repeat(2,1fr);
-gap:9px
-}
-
-.player{
-background:#0c1a2c;
-border:1px solid #29415f;
-border-radius:14px;
-padding:11px
-}
-
-.player.taken{opacity:.4}
-
-.pos{
-font-size:10px;
-font-weight:900;
-color:#54a8ff
-}
-
-.playerName{
-font-weight:900;
-margin:5px 0
-}
-
-.club{
-font-size:12px;
-color:#9fb0c8
-}
-
-.value{
-color:#ffd166;
-font-weight:900;
-font-size:13px;
-margin-top:7px
-}
-
-.player button{
-width:100%;
-border:0;
-border-radius:9px;
-padding:9px;
-margin-top:8px;
-background:#a8ff00;
-font-weight:900
-}
-
 .notice{
-background:#091727;
-border:1px solid #29415f;
-border-radius:11px;
-padding:10px;
-margin:6px 0
+background:#091727;border:1px solid #29415f;
+border-radius:11px;padding:10px;margin:6px 0
 }
-
-.greenBorder{
-border-color:#a8ff00
+.roomBox{
+background:#0c1a2c;border:1px solid #29415f;
+border-radius:14px;padding:12px;margin:8px 0
 }
-
-.tabs{
-display:flex;
-gap:5px;
-overflow-x:auto;
-margin-bottom:10px
+.roomTitle{font-size:18px;font-weight:900}
+.roomInfo{font-size:13px;color:#9fb0c8;margin:5px 0}
+.top{
+display:flex;justify-content:space-between;align-items:center;
+background:#101e33;border:1px solid #29415f;
+border-radius:13px;padding:11px;margin-bottom:9px
 }
-
-.tab{
-border:1px solid #29415f;
-background:#101e33;
-color:#9fb0c8;
-padding:9px 12px;
-border-radius:9px;
-font-weight:900;
-white-space:nowrap
+.money{color:#ffd166;font-weight:900}
+.timer{color:#a8ff00;font-size:25px;font-weight:900}
+.players{
+display:grid;grid-template-columns:repeat(2,1fr);gap:9px
 }
-
-.tab.active{
-background:#a8ff00;
-color:#06111f
+.player{
+background:#0c1a2c;border:1px solid #29415f;
+border-radius:14px;padding:11px
 }
-
-.pitch{
-background:#13833a;
-border:3px solid #ffffff77;
-border-radius:17px;
-padding:13px;
-margin-bottom:13px
+.player.taken{opacity:.4}
+.pos{font-size:10px;font-weight:900;color:#54a8ff}
+.playerName{font-weight:900;margin:5px 0}
+.club{font-size:12px;color:#9fb0c8}
+.value{color:#ffd166;font-weight:900;font-size:13px;margin-top:7px}
+.player button{
+width:100%;border:0;border-radius:9px;padding:9px;
+margin-top:8px;background:#a8ff00;font-weight:900
 }
-
-.pitchTitle{
-text-align:center;
-font-weight:900;
-margin-bottom:9px
-}
-
-.lineup{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:6px
-}
-
-.slot{
-min-height:63px;
-border:2px dashed #ffffff77;
-border-radius:10px;
-display:flex;
-align-items:center;
-justify-content:center;
-text-align:center;
-font-size:10px;
-padding:4px
-}
-
-.slot.full{
-background:#0005;
-border-style:solid
-}
-
 .toast{
-position:fixed;
-bottom:25px;
-left:50%;
-transform:translateX(-50%);
-background:white;
-color:#06111f;
-padding:13px 18px;
-border-radius:12px;
-font-weight:900;
-z-index:9999;
-box-shadow:0 5px 30px #0008;
-max-width:90%;
-text-align:center
+position:fixed;bottom:25px;left:50%;
+transform:translateX(-50%);background:#fff;color:#06111f;
+padding:13px 18px;border-radius:12px;font-weight:900;
+z-index:9999;box-shadow:0 5px 30px #0008
 }
-
 .hidden{display:none}
-
-@media(max-width:450px){
-.players{grid-template-columns:1fr}
-}
+@media(max-width:450px){.players{grid-template-columns:1fr}}
 </style>
 </head>
 
@@ -255,23 +85,47 @@ text-align:center
 <div id="app"></div>
 <div id="toast" class="toast hidden"></div>
 
-<script src="https://unpkg.com/peerjs@1.5.4/dist/peerjs.min.js"></script>
+<script type="module">
 
-<script>
+/* =========================================================
+   ÜCRETSİZ ORTAK ODA SİSTEMİ
+   Firebase bilgilerini daha sonra buraya koyacağız.
+========================================================= */
 
-/* =====================================================
+const firebaseConfig={
+apiKey:"BURAYA_API_KEY",
+authDomain:"BURAYA.firebaseapp.com",
+databaseURL:"https://BURAYA-default-rtdb.firebaseio.com",
+projectId:"BURAYA",
+storageBucket:"BURAYA.firebasestorage.app",
+messagingSenderId:"BURAYA",
+appId:"BURAYA"
+};
+
+import{initializeApp}
+from"https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
+
+import{
+getDatabase,ref,set,get,update,onValue
+}from"https://www.gstatic.com/firebasejs/12.1.0/firebase-database.js";
+
+const firebaseApp=initializeApp(firebaseConfig);
+const db=getDatabase(firebaseApp);
+
+
+/* =========================================================
    AYARLAR
-===================================================== */
+========================================================= */
 
-const BUDGET = 500000000;
-const MAX_PLAYERS = 4;
+const BUDGET=500000000;
+const MAX_PLAYERS=4;
 
 
-/* =====================================================
+/* =========================================================
    OYUNCULAR
-===================================================== */
+========================================================= */
 
-const RAW_PLAYERS = [
+const RAW_PLAYERS=[
 
 ["GK","Uğurcan Çakır","Galatasaray",15000000],
 ["GK","Günay Güvenç","Galatasaray",1200000],
@@ -291,7 +145,6 @@ const RAW_PLAYERS = [
 ["FW","Victor Osimhen","Galatasaray",75000000],
 ["FW","Mauro Icardi","Galatasaray",8000000],
 
-["GK","Ederson","Fenerbahçe",10000000],
 ["GK","Dominik Livaković","Fenerbahçe",4000000],
 
 ["DF","Jayden Oosterwolde","Fenerbahçe",13000000],
@@ -302,7 +155,6 @@ const RAW_PLAYERS = [
 ["MF","Fred","Fenerbahçe",14000000],
 ["MF","İsmail Yüksek","Fenerbahçe",14000000],
 ["MF","Sebastian Szymański","Fenerbahçe",19000000],
-["MF","Mattéo Guendouzi","Fenerbahçe",27000000],
 ["MF","Sofyan Amrabat","Fenerbahçe",12000000],
 
 ["FW","Mason Greenwood","Fenerbahçe",55000000],
@@ -310,7 +162,6 @@ const RAW_PLAYERS = [
 ["FW","Youssef En-Nesyri","Fenerbahçe",22000000],
 
 ["GK","Alexander Nübel","Beşiktaş",12000000],
-["GK","Doğan Alemdar","Beşiktaş",7000000],
 
 ["DF","Felix Uduokhai","Beşiktaş",7000000],
 ["DF","Emirhan Topçu","Beşiktaş",6000000],
@@ -322,10 +173,8 @@ const RAW_PLAYERS = [
 
 ["FW","Leandro Trossard","Beşiktaş",18000000],
 ["FW","Semih Kılıçsoy","Beşiktaş",15000000],
-["FW","Hyeongyu Oh","Beşiktaş",6000000],
 
 ["GK","André Onana","Trabzonspor",10000000],
-["GK","Onuralp Çevikkan","Trabzonspor",1000000],
 
 ["DF","Arseniy Batagov","Trabzonspor",11000000],
 ["DF","Stefan Savić","Trabzonspor",2500000],
@@ -341,72 +190,43 @@ const RAW_PLAYERS = [
 
 ];
 
-
-function createPlayers(){
+function players(){
 
 return RAW_PLAYERS.map((p,i)=>({
-
 id:i,
 pos:p[0],
 name:p[1],
 club:p[2],
 value:p[3],
-owner:null
-
+owner:""
 }));
 
 }
 
 
-/* =====================================================
+/* =========================================================
    STATE
-===================================================== */
+========================================================= */
 
 let state={
-
 screen:"home",
-
 name:"",
-
 team:"",
-
-peer:null,
-
 roomId:"",
-
-isHost:false,
-
+password:"",
 myId:"",
-
-hostId:"",
-
-connections:{},
-
-managers:[],
-
-players:createPlayers(),
-
-turn:0,
-
-timer:30,
-
-gameStarted:false,
-
-search:"",
-
-filter:"ALL"
-
+isHost:false,
+room:null,
+unsubscribe:null
 };
-
-let timerInterval=null;
 
 const app=document.getElementById("app");
 const toastBox=document.getElementById("toast");
 
 
-/* =====================================================
+/* =========================================================
    YARDIMCI
-===================================================== */
+========================================================= */
 
 function money(n){
 
@@ -418,54 +238,40 @@ maximumFractionDigits:0
 
 }
 
+function toast(t){
 
-function toast(text){
-
-toastBox.textContent=text;
-
+toastBox.textContent=t;
 toastBox.classList.remove("hidden");
 
-clearTimeout(window.toastTimer);
+clearTimeout(window.tt);
 
-window.toastTimer=setTimeout(()=>{
+window.tt=setTimeout(()=>{
+toastBox.classList.add("hidden")
+},2500);
 
-toastBox.classList.add("hidden");
+}
 
-},3000);
+function randomCode(){
+
+return Math.floor(100000+Math.random()*900000).toString();
+
+}
+
+function randomId(){
+
+return Date.now()+"_"+Math.random()
+.toString(36).slice(2,8);
 
 }
 
 
-function posName(pos){
-
-if(pos==="GK")return"KALECİ";
-if(pos==="DF")return"DEFANS";
-if(pos==="MF")return"ORTA SAHA";
-return"FORVET";
-
-}
-
-
-/* =====================================================
-   RENDER
-===================================================== */
-
-function render(){
-
-if(state.screen==="home")home();
-if(state.screen==="create")create();
-if(state.screen==="join")join();
-if(state.screen==="lobby")lobby();
-if(state.screen==="game")game();
-
-}
-
-
-/* =====================================================
-   HOME
-===================================================== */
+/* =========================================================
+   ANA SAYFA
+========================================================= */
 
 function home(){
+
+state.screen="home";
 
 app.innerHTML=`
 
@@ -477,994 +283,385 @@ ONLINE • 2-4 KİŞİ
 
 <div class="card">
 
-<h2>🎮 Oyuna Başla</h2>
-
 <button class="btn green"
-onclick="state.screen='create';render()">
-🏠 ODA OLUŞTUR
-</button>
+onclick="createPage()">
 
-<button class="btn"
-onclick="state.screen='join';render()">
-🚪 ODAYA KATIL
+🏠 ODA OLUŞTUR
+
 </button>
 
 </div>
 
 <div class="card">
 
-<h3>🎯 Nasıl oynanır?</h3>
+<h3>🌐 AÇIK ODALAR</h3>
 
-<div class="notice">1️⃣ Oda oluştur.</div>
-<div class="notice">2️⃣ Oda kodunu arkadaşına gönder.</div>
-<div class="notice">3️⃣ 2-4 kişi bağlansın.</div>
-<div class="notice">4️⃣ Sırayla futbolcu seçin.</div>
-<div class="notice">5️⃣ Alınan futbolcuyu başkası alamaz.</div>
-<div class="notice">💰 Bütçe: 500 M€</div>
+<div id="roomList">
+
+<div class="notice">
+⏳ Odalar yükleniyor...
+</div>
 
 </div>
 
+</div>
 `;
+
+listenRooms();
 
 }
 
 
-/* =====================================================
-   CREATE
-===================================================== */
+/* =========================================================
+   ODA LİSTESİ
+========================================================= */
 
-function create(){
+function listenRooms(){
+
+onValue(ref(db,"rooms"),snapshot=>{
+
+const data=snapshot.val()||{};
+const box=document.getElementById("roomList");
+
+if(!box)return;
+
+const rooms=Object.entries(data)
+.filter(([_,r])=>r.status==="waiting");
+
+if(!rooms.length){
+
+box.innerHTML=`
+<div class="notice">
+🏠 Şu anda açık oda yok.
+</div>`;
+return;
+
+}
+
+box.innerHTML=rooms.map(([code,r])=>`
+
+<div class="roomBox">
+
+<div class="roomTitle">
+🔥 ${r.name}
+</div>
+
+<div class="roomInfo">
+👥 ${r.count||1}/4 &nbsp; 🔐 Şifreli
+</div>
+
+<button class="btn green"
+onclick="passwordPage('${code}')">
+
+🚪 ODAYA GİR
+
+</button>
+
+</div>
+
+`).join("");
+
+});
+
+}
+
+
+/* =========================================================
+   ODA OLUŞTURMA SAYFASI
+========================================================= */
+
+function createPage(){
 
 app.innerHTML=`
 
-<div class="logo">⚽ SÜPER LİG DRAFT</div>
+<div class="logo">
+🏠 ODA OLUŞTUR
+</div>
 
 <div class="card">
 
-<h2>🏠 Oda Oluştur</h2>
-
 <input id="name"
-placeholder="Menajer adın"
-maxlength="20">
+placeholder="Menajer adın">
 
-<select id="team">
+<input id="team"
+placeholder="Takımın">
 
-<option value="">Takımını seç</option>
-<option>Galatasaray</option>
-<option>Fenerbahçe</option>
-<option>Beşiktaş</option>
-<option>Trabzonspor</option>
-
-</select>
+<input id="password"
+type="password"
+placeholder="Oda şifresi">
 
 <button class="btn green"
 onclick="createRoom()">
+
 🚀 ODAYI OLUŞTUR
+
 </button>
 
 <button class="btn"
-onclick="state.screen='home';render()">
+onclick="home()">
+
 GERİ
+
 </button>
 
 </div>
-
 `;
 
 }
 
 
-/* =====================================================
-   JOIN
-===================================================== */
-
-function join(){
-
-app.innerHTML=`
-
-<div class="logo">⚽ SÜPER LİG DRAFT</div>
-
-<div class="card">
-
-<h2>🚪 Odaya Katıl</h2>
-
-<input id="name"
-placeholder="Menajer adın"
-maxlength="20">
-
-<select id="team">
-
-<option value="">Takımını seç</option>
-<option>Galatasaray</option>
-<option>Fenerbahçe</option>
-<option>Beşiktaş</option>
-<option>Trabzonspor</option>
-
-</select>
-
-<input id="room"
-placeholder="Hostun verdiği oda kodunu yapıştır">
-
-<button class="btn green"
-onclick="joinRoom()">
-🌐 ODAYA KATIL
-</button>
-
-<button class="btn"
-onclick="state.screen='home';render()">
-GERİ
-</button>
-
-</div>
-
-<div class="card">
-
-<div class="notice">
-💡 Hostun ekranındaki oda kodunun tamamını kopyala.
-</div>
-
-</div>
-
-`;
-
-}
-
-
-/* =====================================================
-   PEER TEMİZLE
-===================================================== */
-
-function destroyPeer(){
-
-try{
-
-if(state.peer){
-
-state.peer.destroy();
-
-}
-
-}catch(e){}
-
-state.peer=null;
-state.connections={};
-
-}
-
-
-/* =====================================================
+/* =========================================================
    ODA OLUŞTUR
-===================================================== */
+========================================================= */
 
-function createRoom(){
+async function createRoom(){
 
 const name=document.getElementById("name").value.trim();
-const team=document.getElementById("team").value;
+const team=document.getElementById("team").value.trim();
+const password=document.getElementById("password").value.trim();
 
-if(!name||!team){
+if(!name||!team||!password){
 
-toast("⚠️ İsim ve takım seç.");
-
+toast("⚠️ Bilgileri doldur.");
 return;
 
 }
 
-destroyPeer();
+const code=randomCode();
+const me=randomId();
+
+const roomPlayers={};
+
+players().forEach(p=>{
+roomPlayers[p.id]=p;
+});
 
 state.name=name;
 state.team=team;
+state.password=password;
+state.roomId=code;
+state.myId=me;
 state.isHost=true;
-state.gameStarted=false;
-state.players=createPlayers();
 
+const data={
 
-/*
- PeerJS'nin kendi benzersiz ID'sini üretmesine izin veriyoruz.
-*/
+name:name+"'in Odası",
+password:password,
+status:"waiting",
+count:1,
+turn:0,
+timer:30,
 
-state.peer=new Peer();
-
-state.peer.on("open",id=>{
-
-state.myId=id;
-state.roomId=id;
-state.hostId=id;
-
-state.managers=[{
-
-id:id,
+managers:{
+[me]:{
+id:me,
 name:name,
 team:team,
 money:BUDGET
-
-}];
-
-state.screen="lobby";
-
-render();
-
-toast("✅ Oda oluşturuldu!");
-
-});
-
-
-state.peer.on("connection",conn=>{
-
-acceptConnection(conn);
-
-});
-
-
-state.peer.on("error",err=>{
-
-console.log("HOST ERROR:",err);
-
-if(err.type==="network"){
-
-toast("❌ İnternet/PeerJS bağlantısı yok.");
-
-}else{
-
-toast("❌ PeerJS: "+err.type);
-
 }
+},
 
-});
+players:roomPlayers
 
-}
-
-
-/* =====================================================
-   ODAYA KATIL
-===================================================== */
-
-function joinRoom(){
-
-const name=document.getElementById("name").value.trim();
-const team=document.getElementById("team").value;
-const room=document.getElementById("room").value.trim();
-
-if(!name||!team||!room){
-
-toast("⚠️ Bilgileri doldur.");
-
-return;
-
-}
-
-destroyPeer();
-
-state.name=name;
-state.team=team;
-state.roomId=room;
-state.isHost=false;
-
-state.peer=new Peer();
-
-state.peer.on("open",myId=>{
-
-state.myId=myId;
-
-console.log("Kendi ID:",myId);
-console.log("Host ID:",room);
-
-
-/*
- Burada doğrudan HOSTUN GERÇEK PEER ID'SİNE
- bağlanıyoruz.
-*/
-
-const conn=state.peer.connect(room,{
-reliable:true
-});
-
-state.connections.host=conn;
-
-let timeout=setTimeout(()=>{
-
-if(!conn.open){
-
-toast("❌ Oda bulunamadı. Host ekranını açık tut.");
-
-}
-
-},12000);
-
-
-conn.on("open",()=>{
-
-clearTimeout(timeout);
-
-console.log("HOST BAĞLANTISI AÇILDI");
-
-conn.send({
-
-type:"JOIN",
-
-id:myId,
-name:name,
-team:team
-
-});
-
-state.screen="lobby";
-
-render();
-
-toast("🟢 Odaya bağlandın!");
-
-});
-
-
-conn.on("data",receiveData);
-
-
-conn.on("error",err=>{
-
-console.log("CONNECTION ERROR:",err);
-
-toast("❌ Host bağlantı hatası.");
-
-});
-
-
-conn.on("close",()=>{
-
-toast("⚠️ Host bağlantısı kapandı.");
-
-});
-
-});
-
-
-state.peer.on("error",err=>{
-
-console.log("JOIN PEER ERROR:",err);
-
-if(err.type==="peer-unavailable"){
-
-toast("❌ Oda bulunamadı. Kodu eksiksiz yapıştır.");
-
-}
-
-else if(err.type==="network"){
-
-toast("❌ İnternet bağlantısı kurulamadı.");
-
-}
-
-else{
-
-toast("❌ PeerJS: "+err.type);
-
-}
-
-});
-
-}
-
-
-/* =====================================================
-   HOST BAĞLANTI KABUL
-===================================================== */
-
-function acceptConnection(conn){
-
-conn.on("open",()=>{
-
-console.log("Oyuncu bağlandı:",conn.peer);
-
-});
-
-
-conn.on("data",data=>{
-
-console.log("HOST DATA:",data);
-
-if(data.type==="JOIN"){
-
-handleJoin(conn,data);
-
-}
-
-else{
-
-handleHostData(data);
-
-}
-
-});
-
-
-conn.on("close",()=>{
-
-const id=conn.peer;
-
-delete state.connections[id];
-
-state.managers=
-state.managers.filter(m=>m.id!==id);
-
-broadcastLobby();
-
-});
-
-}
-
-
-/* =====================================================
-   JOIN HANDLE
-===================================================== */
-
-function handleJoin(conn,data){
-
-if(state.managers.length>=MAX_PLAYERS){
-
-conn.send({
-
-type:"FULL"
-
-});
-
-return;
-
-}
-
-if(state.gameStarted){
-
-conn.send({
-
-type:"STARTED"
-
-});
-
-return;
-
-}
-
-if(!state.managers.find(m=>m.id===data.id)){
-
-state.managers.push({
-
-id:data.id,
-name:data.name,
-team:data.team,
-money:BUDGET
-
-});
-
-}
-
-state.connections[data.id]=conn;
-
-
-/*
- Yeni oyuncuya mevcut durum
-*/
-
-conn.send({
-
-type:"WELCOME",
-
-hostId:state.myId,
-
-players:state.players,
-
-managers:state.managers,
-
-turn:state.turn,
-
-gameStarted:state.gameStarted
-
-});
-
-
-broadcastLobby();
-
-render();
-
-toast("👤 "+data.name+" odaya katıldı.");
-
-}
-
-
-/* =====================================================
-   HOST DATA
-===================================================== */
-
-function handleHostData(data){
-
-if(data.type==="PICK"){
-
-hostPick(
-data.playerId,
-data.managerId
-);
-
-}
-
-}
-
-
-/* =====================================================
-   BROADCAST
-===================================================== */
-
-function broadcast(data){
-
-Object.values(state.connections).forEach(conn=>{
-
-if(conn&&conn.open){
+};
 
 try{
 
-conn.send(data);
+await set(ref(db,"rooms/"+code),data);
+
+openRoom(code);
 
 }catch(e){
 
 console.log(e);
+toast("Firebase bağlantısı hazır değil.");
 
 }
 
 }
 
-});
+
+/* =========================================================
+   ŞİFRE SAYFASI
+========================================================= */
+
+function passwordPage(code){
+
+app.innerHTML=`
+
+<div class="logo">
+🔐 ODAYA GİR
+</div>
+
+<div class="card">
+
+<div class="room">
+${code}
+</div>
+
+<input id="joinName"
+placeholder="Menajer adın">
+
+<input id="joinTeam"
+placeholder="Takımın">
+
+<input id="joinPassword"
+type="password"
+placeholder="Oda şifresi">
+
+<button class="btn green"
+onclick="joinRoom('${code}')">
+
+🔓 ODAYA GİR
+
+</button>
+
+<button class="btn"
+onclick="home()">
+
+GERİ
+
+</button>
+
+</div>
+`;
 
 }
 
 
-/* =====================================================
-   LOBBY BROADCAST
-===================================================== */
+/* =========================================================
+   ODAYA GİR
+========================================================= */
 
-function broadcastLobby(){
+async function joinRoom(code){
 
-broadcast({
+const name=document.getElementById("joinName").value.trim();
+const team=document.getElementById("joinTeam").value.trim();
+const password=document.getElementById("joinPassword").value.trim();
 
-type:"LOBBY",
+if(!name||!team||!password){
 
-managers:state.managers,
-gameStarted:state.gameStarted
-
-});
-
-}
-
-
-/* =====================================================
-   OYUN BAŞLAT
-===================================================== */
-
-function startGame(){
-
-if(!state.isHost)return;
-
-if(state.managers.length<2){
-
-toast("⚠️ En az 2 kişi gerekli.");
-
+toast("⚠️ Bilgileri doldur.");
 return;
 
 }
 
-state.gameStarted=true;
-state.turn=0;
-state.timer=30;
+const snap=await get(ref(db,"rooms/"+code));
 
-broadcast({
+if(!snap.exists()){
 
-type:"GAME_START",
-
-players:state.players,
-managers:state.managers,
-turn:state.turn,
-timer:30
-
-});
-
-state.screen="game";
-
-render();
-
-startTimer();
-
-toast("🚀 Oyun başladı!");
-
-}
-
-
-/* =====================================================
-   CURRENT MANAGER
-===================================================== */
-
-function currentManager(){
-
-return state.managers[state.turn]||null;
-
-}
-
-
-/* =====================================================
-   TIMER
-===================================================== */
-
-function startTimer(){
-
-clearInterval(timerInterval);
-
-timerInterval=setInterval(()=>{
-
-if(!state.gameStarted){
-
-clearInterval(timerInterval);
-
+toast("❌ Oda bulunamadı.");
 return;
 
 }
 
-state.timer--;
+const room=snap.val();
 
-const timer=document.getElementById("timer");
+if(room.password!==password){
 
-if(timer){
-
-timer.textContent=state.timer;
-
-}
-
-if(state.timer<=0){
-
-if(state.isHost){
-
-nextTurn();
-
-}
-
-}
-
-},1000);
-
-}
-
-
-/* =====================================================
-   NEXT TURN
-===================================================== */
-
-function nextTurn(){
-
-if(!state.isHost)return;
-
-if(!state.managers.length)return;
-
-state.turn++;
-
-if(state.turn>=state.managers.length){
-
-state.turn=0;
-
-}
-
-state.timer=30;
-
-broadcast({
-
-type:"STATE",
-
-players:state.players,
-
-managers:state.managers,
-
-turn:state.turn,
-
-timer:30
-
-});
-
-render();
-
-}
-
-
-/* =====================================================
-   BUY PLAYER
-===================================================== */
-
-function buyPlayer(id){
-
-const player=
-state.players.find(p=>p.id===id);
-
-if(!player)return;
-
-if(!state.gameStarted){
-
-toast("⚠️ Oyun başlamadı.");
-
+toast("❌ Şifre yanlış.");
 return;
 
 }
 
-const manager=currentManager();
+if((room.count||0)>=MAX_PLAYERS){
 
-if(!manager)return;
-
-if(manager.id!==state.myId){
-
-toast("⏳ Sıra sende değil.");
-
+toast("❌ Oda dolu.");
 return;
 
 }
 
-if(player.owner){
+const me=randomId();
 
-toast("🔒 Bu futbolcu alındı.");
-
-return;
-
+await update(
+ref(db,"rooms/"+code+"/managers/"+me),
+{
+id:me,
+name:name,
+team:team,
+money:BUDGET
 }
-
-if(manager.money<player.value){
-
-toast("💰 Bütçen yetmiyor.");
-
-return;
-
-}
-
-if(state.isHost){
-
-hostPick(id,state.myId);
-
-return;
-
-}
-
-const conn=state.connections.host;
-
-if(!conn||!conn.open){
-
-toast("❌ Host bağlantısı yok.");
-
-return;
-
-}
-
-conn.send({
-
-type:"PICK",
-
-playerId:id,
-managerId:state.myId
-
-});
-
-}
-
-
-/* =====================================================
-   HOST PICK
-===================================================== */
-
-function hostPick(playerId,managerId){
-
-if(!state.isHost)return;
-
-const manager=
-state.managers.find(m=>m.id===managerId);
-
-const player=
-state.players.find(p=>p.id===playerId);
-
-if(!manager||!player)return;
-
-const current=currentManager();
-
-if(!current||current.id!==managerId){
-
-return;
-
-}
-
-if(player.owner){
-
-return;
-
-}
-
-if(manager.money<player.value){
-
-return;
-
-}
-
-player.owner=managerId;
-
-manager.money-=player.value;
-
-
-/*
- Önce seçimi gönder
-*/
-
-broadcast({
-
-type:"PICKED",
-
-player:player,
-
-players:state.players,
-
-managers:state.managers,
-
-turn:state.turn,
-
-timer:30
-
-});
-
-render();
-
-toast("⚽ "+player.name+" → "+manager.name);
-
-
-/*
- 1 saniye sonra sıra
-*/
-
-setTimeout(()=>{
-
-nextTurn();
-
-},1000);
-
-}
-
-
-/* =====================================================
-   RECEIVE DATA
-===================================================== */
-
-function receiveData(data){
-
-console.log("CLIENT DATA:",data);
-
-
-if(data.type==="WELCOME"){
-
-state.hostId=data.hostId;
-
-state.players=data.players;
-
-state.managers=data.managers;
-
-state.turn=data.turn;
-
-state.gameStarted=data.gameStarted;
-
-state.timer=30;
-
-render();
-
-return;
-
-}
-
-
-if(data.type==="LOBBY"){
-
-state.managers=data.managers;
-
-state.gameStarted=data.gameStarted;
-
-render();
-
-return;
-
-}
-
-
-if(data.type==="GAME_START"){
-
-state.players=data.players;
-
-state.managers=data.managers;
-
-state.turn=data.turn;
-
-state.timer=data.timer||30;
-
-state.gameStarted=true;
-
-state.screen="game";
-
-render();
-
-startTimer();
-
-toast("🚀 Draft başladı!");
-
-return;
-
-}
-
-
-if(data.type==="PICKED"){
-
-state.players=data.players;
-
-state.managers=data.managers;
-
-state.turn=data.turn;
-
-state.timer=data.timer||30;
-
-const player=data.player;
-
-const manager=
-state.managers.find(m=>m.id===player.owner);
-
-if(manager){
-
-toast(
-"🔒 "+player.name+
-" → "+manager.name
 );
 
+await update(
+ref(db,"rooms/"+code),
+{
+count:(room.count||0)+1
 }
+);
+
+state.name=name;
+state.team=team;
+state.password=password;
+state.roomId=code;
+state.myId=me;
+state.isHost=false;
+
+openRoom(code);
+
+toast("✅ Odaya katıldın!");
+
+}
+
+
+/* =========================================================
+   ODAYI AÇ
+========================================================= */
+
+function openRoom(code){
+
+state.screen="lobby";
+
+state.roomId=code;
+
+listenRoom(code);
+
+}
+
+
+/* =========================================================
+   ODAYI DİNLE
+========================================================= */
+
+function listenRoom(code){
+
+if(state.unsubscribe)
+state.unsubscribe();
+
+state.unsubscribe=onValue(
+ref(db,"rooms/"+code),
+snap=>{
+
+if(!snap.exists()){
+
+toast("❌ Oda kapandı.");
+home();
+return;
+
+}
+
+state.room=snap.val();
+
+if(state.room.status==="playing")
+state.screen="game";
+else
+state.screen="lobby";
 
 render();
 
-return;
+});
 
 }
 
 
-if(data.type==="STATE"){
-
-state.players=data.players;
-
-state.managers=data.managers;
-
-state.turn=data.turn;
-
-state.timer=data.timer||30;
-
-render();
-
-return;
-
-}
-
-
-if(data.type==="FULL"){
-
-toast("❌ Oda dolu. Maksimum 4 kişi.");
-
-return;
-
-}
-
-
-if(data.type==="STARTED"){
-
-toast("❌ Bu oyun zaten başlamış.");
-
-return;
-
-}
-
-}
-
-
-/* =====================================================
-   LOBBY
-===================================================== */
+/* =========================================================
+   LOBİ
+========================================================= */
 
 function lobby(){
 
-const count=state.managers.length;
+const managers=
+Object.values(state.room.managers||{});
 
 app.innerHTML=`
 
@@ -1480,34 +677,22 @@ app.innerHTML=`
 ${state.roomId}
 </div>
 
-<div style="text-align:center;color:#9fb0c8">
-
-Oda kodunun tamamını arkadaşına gönder.
-
+<div class="notice">
+🔐 Şifre: <b>${state.password}</b>
 </div>
 
-<button class="btn"
-onclick="copyRoom()">
-
-📋 KODU KOPYALA
-
-</button>
-
 </div>
-
 
 <div class="card">
 
-<h3>👥 MENAJERLER (${count}/4)</h3>
+<h3>👥 OYUNCULAR ${managers.length}/4</h3>
 
-${state.managers.map((m,i)=>`
+${managers.map((m,i)=>`
 
-<div class="notice ${i===0?"greenBorder":""}">
+<div class="notice">
 
-<b>
 ${i===0?"👑 ":""}
-${m.name}
-</b>
+<b>${m.name}</b>
 
 <br>
 
@@ -1515,101 +700,160 @@ ${m.name}
 ${m.team}
 </span>
 
-<br>
-
-<span style="color:#ffd166">
-💰 ${money(m.money)}
-</span>
-
 </div>
 
 `).join("")}
 
-
-${count<2?`
-
-<div class="notice">
-⏳ Arkadaşının odaya girmesi bekleniyor...
 </div>
-
-`:`
-
-<div class="notice greenBorder">
-✅ ${count} oyuncu hazır.
-</div>
-
-`}
-
 
 ${state.isHost?`
 
-<button
-class="btn green"
+<div class="card">
+
+<button class="btn green"
 onclick="startGame()"
-${count<2?"disabled":""}>
+${managers.length<2?"disabled":""}>
 
 🚀 OYUNU BAŞLAT
 
 </button>
 
-`:`
+</div>
+
+`:
+
+`
+
+<div class="card">
 
 <div class="notice">
 ⏳ Oda sahibinin oyunu başlatması bekleniyor.
 </div>
 
-`}
-
 </div>
+
+`}
 
 `;
 
 }
 
 
-/* =====================================================
-   COPY
-===================================================== */
+/* =========================================================
+   OYUN BAŞLAT
+========================================================= */
 
-function copyRoom(){
+async function startGame(){
 
-if(!state.roomId)return;
+const managers=
+Object.values(state.room.managers||{});
 
-if(navigator.clipboard){
+if(managers.length<2){
 
-navigator.clipboard.writeText(state.roomId)
-
-.then(()=>{
-
-toast("✅ Oda kodu kopyalandı.");
-
-})
-
-.catch(()=>{
-
-toast("Oda kodu: "+state.roomId);
-
-});
-
-}else{
-
-toast("Oda kodu: "+state.roomId);
+toast("⚠️ En az 2 kişi gerekli.");
+return;
 
 }
+
+await update(
+ref(db,"rooms/"+state.roomId),
+{
+status:"playing",
+turn:0,
+timer:30
+}
+);
 
 }
 
 
-/* =====================================================
-   GAME
-===================================================== */
+/* =========================================================
+   OYUNCU AL
+========================================================= */
+
+async function buyPlayer(id){
+
+const room=state.room;
+
+const managers=
+Object.values(room.managers||{});
+
+const current=
+managers[room.turn||0];
+
+if(current.id!==state.myId){
+
+toast("⏳ Sıra sende değil!");
+return;
+
+}
+
+const player=room.players[id];
+
+if(!player)return;
+
+if(player.owner){
+
+toast("🔒 Bu oyuncu alındı.");
+return;
+
+}
+
+if(current.money<player.value){
+
+toast("💰 Bütçen yetmiyor.");
+return;
+
+}
+
+await update(
+ref(db,"rooms/"+state.roomId+
+"/players/"+id),
+{
+owner:state.myId
+}
+);
+
+await update(
+ref(db,"rooms/"+state.roomId+
+"/managers/"+state.myId),
+{
+money:current.money-player.value
+}
+);
+
+const next=(room.turn+1)%managers.length;
+
+await update(
+ref(db,"rooms/"+state.roomId),
+{
+turn:next,
+timer:30
+}
+);
+
+toast("⚽ "+player.name+" kadroya alındı!");
+
+}
+
+
+/* =========================================================
+   OYUN
+========================================================= */
 
 function game(){
 
-const me=
-state.managers.find(m=>m.id===state.myId);
+const managers=
+Object.values(state.room.managers||{});
 
-const current=currentManager();
+const me=
+managers.find(x=>x.id===state.myId);
+
+const current=
+managers[state.room.turn||0];
+
+const list=
+Object.values(state.room.players||{});
 
 app.innerHTML=`
 
@@ -1617,62 +861,49 @@ app.innerHTML=`
 ⚽ SÜPER LİG DRAFT
 </div>
 
-
 <div class="top">
 
 <div>
-
 <b>${state.name}</b>
-
 <br>
-
 <span style="color:#9fb0c8">
 ${state.team}
 </span>
-
 </div>
 
 <div class="money">
-
-${money(me?me.money:BUDGET)}
-
+${money(me?.money||BUDGET)}
 </div>
 
 </div>
-
 
 <div class="top">
 
 <div>
-
 <span style="font-size:11px;color:#9fb0c8">
 SIRA
 </span>
-
 <br>
-
-<b>
-${current?current.name:"-"}
-</b>
-
+<b>${current?.name||"-"}</b>
 </div>
 
-<div class="timer" id="timer">
-${state.timer}
+<div class="timer">
+${state.room.timer||30}
 </div>
 
 </div>
-
 
 <div class="card">
 
 <h3>👥 MENAJERLER</h3>
 
-${state.managers.map((m,i)=>`
+${managers.map((m,i)=>`
 
-<div class="notice ${i===state.turn?"greenBorder":""}">
+<div class="notice"
+style="${i===state.room.turn?
+"border-color:#a8ff00":""}">
 
-${i===state.turn?"🔥 ":""}
+${i===state.room.turn?"🔥 ":""}
 
 <b>${m.name}</b>
 
@@ -1685,7 +916,7 @@ ${m.team}
 <br>
 
 <span style="color:#ffd166">
-💰 ${money(m.money)}
+${money(m.money)}
 </span>
 
 </div>
@@ -1694,90 +925,50 @@ ${m.team}
 
 </div>
 
-
-${mySquad()}
-
-
 <div class="card">
 
 <h2>⚽ OYUNCU HAVUZU</h2>
 
-<input
-placeholder="🔎 Oyuncu ara..."
-value="${state.search}"
-oninput="searchPlayers(this.value)"
->
-
-<div class="tabs">
-
-<button class="tab ${state.filter==="ALL"?"active":""}"
-onclick="setFilter('ALL')">
-Tümü
-</button>
-
-<button class="tab ${state.filter==="GK"?"active":""}"
-onclick="setFilter('GK')">
-Kaleci
-</button>
-
-<button class="tab ${state.filter==="DF"?"active":""}"
-onclick="setFilter('DF')">
-Defans
-</button>
-
-<button class="tab ${state.filter==="MF"?"active":""}"
-onclick="setFilter('MF')">
-Orta Saha
-</button>
-
-<button class="tab ${state.filter==="FW"?"active":""}"
-onclick="setFilter('FW')">
-Forvet
-</button>
-
-</div>
-
 <div class="players">
 
-${playerList()}
+${list.map(p=>{
 
+const owner=
+managers.find(m=>m.id===p.owner);
+
+return`
+
+<div class="player ${p.owner?"taken":""}">
+
+<div class="pos">
+${p.pos}
 </div>
 
+<div class="playerName">
+${p.name}
 </div>
 
-`;
+<div class="club">
+${p.club}
+</div>
+
+<div class="value">
+${money(p.value)}
+</div>
+
+${p.owner?
+
+`<div class="notice">
+🔒 ${owner?.name||"ALINDI"}
+</div>`
+
+:
+
+`<button onclick="buyPlayer(${p.id})">
+💰 KADROYA AL
+</button>`
 
 }
-
-
-/* =====================================================
-   SQUAD
-===================================================== */
-
-function mySquad(){
-
-const squad=
-state.players.filter(p=>p.owner===state.myId);
-
-return `
-
-<div class="pitch">
-
-<div class="pitchTitle">
-🏟️ KADROM ${squad.length}/11
-</div>
-
-<div class="lineup">
-
-${Array.from({length:11},(_,i)=>{
-
-const p=squad[i];
-
-return `
-
-<div class="slot ${p?"full":""}">
-
-${p?p.name:"+ "+(i+1)}
 
 </div>
 
@@ -1794,134 +985,33 @@ ${p?p.name:"+ "+(i+1)}
 }
 
 
-/* =====================================================
-   PLAYER LIST
-===================================================== */
+/* =========================================================
+   RENDER
+========================================================= */
 
-function playerList(){
+function render(){
 
-return state.players
+if(state.screen==="home")home();
 
-.filter(p=>{
+if(state.screen==="lobby"&&state.room)
+lobby();
 
-if(state.filter!=="ALL"&&p.pos!==state.filter){
-
-return false;
-
-}
-
-if(state.search){
-
-const s=state.search.toLowerCase();
-
-return(
-p.name.toLowerCase().includes(s)||
-p.club.toLowerCase().includes(s)
-);
+if(state.screen==="game"&&state.room)
+game();
 
 }
 
-return true;
+window.home=home;
+window.createPage=createPage;
+window.createRoom=createRoom;
+window.passwordPage=passwordPage;
+window.joinRoom=joinRoom;
+window.startGame=startGame;
+window.buyPlayer=buyPlayer;
 
-})
-
-.map(p=>{
-
-const owner=
-state.managers.find(m=>m.id===p.owner);
-
-const myTurn=
-currentManager()&&
-currentManager().id===state.myId;
-
-return `
-
-<div class="player ${p.owner?"taken":""}">
-
-<div class="pos">
-${posName(p.pos)}
-</div>
-
-<div class="playerName">
-${p.name}
-</div>
-
-<div class="club">
-${p.club}
-</div>
-
-<div class="value">
-${money(p.value)}
-</div>
-
-
-${p.owner?`
-
-<div class="notice">
-🔒 ${owner?owner.name:"ALINDI"}
-</div>
-
-`:`
-
-<button
-onclick="buyPlayer(${p.id})"
-${!myTurn?"disabled":""}>
-
-💰 KADROYA AL
-
-</button>
-
-`}
-
-</div>
-
-`;
-
-}).join("");
-
-}
-
-
-/* =====================================================
-   SEARCH
-===================================================== */
-
-function searchPlayers(value){
-
-state.search=value;
-
-const box=document.querySelector(".players");
-
-if(box){
-
-box.innerHTML=playerList();
-
-}
-
-}
-
-
-/* =====================================================
-   FILTER
-===================================================== */
-
-function setFilter(value){
-
-state.filter=value;
-
-render();
-
-}
-
-
-/* =====================================================
-   BAŞLAT
-===================================================== */
-
-render();
+home();
 
 </script>
 
 </body>
 </html>
-```
